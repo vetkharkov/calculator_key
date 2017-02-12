@@ -10,28 +10,13 @@ $sub = $_POST['sub'];
 $mul = $_POST['mul'];
 $div = $_POST['div'];
 //-------------------
-// Если на сайт только-только зашли, обнуляем счетчик.
+// Если на сайт только-только зашли, обнуляем счетчик val.
 if (!isset($_SESSION['val'])) $_SESSION['val'] = "";
 //--------------------------------------------------
 for ($i=0;$i<10;$i++) {
     $_SESSION['val'] = $_SESSION['val'] . $_POST["$i"];
-//    $_SESSION['val'] = $_SESSION['val'] . $_POST['1'];
-//    $_SESSION['val'] = $_SESSION['val'] . $_POST['2'];
-//    $_SESSION['val'] = $_SESSION['val'] . $_POST['3'];
-//    $_SESSION['val'] = $_SESSION['val'] . $_POST['4'];
-//    $_SESSION['val'] = $_SESSION['val'] . $_POST['5'];
-//    $_SESSION['val'] = $_SESSION['val'] . $_POST['6'];
-//    $_SESSION['val'] = $_SESSION['val'] . $_POST['7'];
-//    $_SESSION['val'] = $_SESSION['val'] . $_POST['8'];
-//    $_SESSION['val'] = $_SESSION['val'] . $_POST['9'];
 }
 //--------------------------------------------------
-/**
- * @param int $a
- * @param int $b
- * @param string $operator
- * @return float|int|mixed
- */
 function getresult($a = 0, $b = 0, $operator = "+")
 {
     switch ($operator) {
@@ -49,7 +34,6 @@ function getresult($a = 0, $b = 0, $operator = "+")
             break;
     }
 }
-
 //-----------------------------------------------
 function add($a, $b)
 {
@@ -68,7 +52,6 @@ function div($a, $b)
     return $a / $b;
 }
 //-----------------------------------------------
-
 if ($clear == "C") {
     $_SESSION['val'] = "";
 }
@@ -90,29 +73,13 @@ if ($mul == "*") {
 if ($div == "/") {
     $_SESSION['val'] .= "/";
 }
-
 //--------------------------------------------------
 $val = $_SESSION['val'];
-
-//if (substr($val,0 , 1) == 0) {
-//    $val = substr($val,0 , -1);
-//    $_SESSION['val'] = $val;
-//}
-//echo "Введённое значение: ",$val;echo "<br>";
-
 $result_a = preg_match_all('#[\Q +-*/ \E]?[\d]+[.]?[\d]*#',$val,$arg_a);
 $result_o = preg_match('/[^.0-9]/',$arg_a[0][1],$o);
 $result_b = preg_match('/[\d]+[.]?[\d]*/',$arg_a[0][1],$arg_b);
-
-//print_r($arg_a);echo "<br>";
-//print_r($arg_b);echo "<br>";
-
 $a = $arg_a[0][0];
 $b = $arg_b[0];
-//--------------------------------------------------
-//echo "Первый аргумент : ".$a;echo "<br>";
-//echo "Второй аргумент : ". $b;echo "<br>";
-//echo "Оператор : ".$o[0];echo "<br>";
 //--------------------------------------------------
 $operator = $o[0];
 $equally = " ";
@@ -120,10 +87,6 @@ if ($rt == "=") {
     $result = getresult($a, $b, $operator);
     $equally = "=";
 }
-
-//$result = getresult($a, $b, $operator);// Подсчет в реальном времени
-
-//echo "Результат :",$result;
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -161,7 +124,6 @@ if ($rt == "=") {
             -moz-border-radius:  5px; /* Firefox */
             -webkit-border-radius:  5px; /* Safari 4 */
             border-radius:  5px; /* IE 9, Safari 5, Chrome */
-            /*padding:5px 5px;*/
         }
     </style>
 </head>
@@ -204,19 +166,3 @@ if ($rt == "=") {
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
