@@ -113,17 +113,32 @@ if ($rt == "=") {
             font-size: xx-large;
             font-family: digital-7;
             padding:4px 5px 12px 5px;
-            margin: 0px 100px;
+            margin: 10px 20px;
             border: 2px #ccc solid;
-            border-radius: 3px;
+            -moz-border-radius:  7px; /* Firefox */
+            -webkit-border-radius:  7px; /* Safari 4 */
+            border-radius:  7px; /* IE 9, Safari 5, Chrome */
             width: auto;
+            line-height: 25px;
+            background-color: #e3fffc
         }
         input {
-            width: 70px;
+            min-height: 50px;
+            width: 90px;
             font-size: x-large;
-            -moz-border-radius:  5px; /* Firefox */
-            -webkit-border-radius:  5px; /* Safari 4 */
-            border-radius:  5px; /* IE 9, Safari 5, Chrome */
+            -moz-border-radius:  7px; /* Firefox */
+            -webkit-border-radius:  7px; /* Safari 4 */
+            border-radius:  7px; /* IE 9, Safari 5, Chrome */
+        }
+        div {
+            background-color: #a5f7ff;
+            margin: 10px auto;
+            width: 400px;
+            border: 2px #ccc solid;
+            -moz-border-radius:  7px; /* Firefox */
+            -webkit-border-radius:  7px; /* Safari 4 */
+            border-radius:  7px; /* IE 9, Safari 5, Chrome */
+        }
         }
     </style>
 </head>
@@ -131,7 +146,7 @@ if ($rt == "=") {
 <h1 align="center">Калькулятор</h1>
 <div align="center">
     <form action="" method="post">
-        <p align="right"><?= "$a $operator $b " . "$equally " . "$result" ?></p>
+        <p align="right"><?= "$a $operator $b " . "$equally " . "$result" ?>&#160;</p>
         <table width="250px" height ="300">
             <tr align="center">
                 <td colspan="2"><input name="C" value="C" type="submit"></td>
